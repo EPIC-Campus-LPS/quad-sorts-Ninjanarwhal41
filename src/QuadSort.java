@@ -1,23 +1,8 @@
 import java.util.*;
 
 public class QuadSort{
-    public static int[] randomArray(int n){
-        int[] arr = new int[n];
-        for(int i = 0; i < n; i++){
-            arr[i] = (int)(Math.random() * 100);
-        }
-        return arr;
-    }
     public static void main(String[] args){
-        int[] arr = randomArray(100);
-        int[] arr2 = randomArray(1000);
-        int[] arr3 = randomArray(10000);
-        int[] arr4 = randomArray(100000);
-        int[] arr5 = randomArray(1000000);
-        System.out.println(Arrays.toString(bubbleSort(arr3)));
-        System.out.println(Arrays.toString(selectionSort(arr3)));
     }
-
     public static int[] bubbleSort(int[] arr){
         for(int i = 0; i < arr.length; i++){
             for(int j = 0; j < arr.length - 1 - i; j++){
@@ -46,8 +31,12 @@ public class QuadSort{
 
     public static int[] insertionSort(int[] arr){
         for (int i = 0; i < arr.length; i++){
-            for (int j = i; j > 0; j--){
-                break;
+            for (int key = i+1; key > 0; key--){
+                if (arr[key] > arr[key-1]){
+                    int temp = arr[key];
+                    arr[key] = arr[key-1];
+                    arr[key-1] = temp;
+                }
             }
         }
 
