@@ -35,6 +35,14 @@ public class SortingTester
         */
 
     }
+    public static boolean sorted(int[] arr){
+        for (int i = 0; i < arr.length -1; i++){
+            if (arr[i] > arr[i+1]){
+                return false;
+            }
+        }
+        return true;
+    }
     public static int[] randomArray(int n){
         int[] arr = new int[n];
         for(int i = 0; i < n; i++){
@@ -46,16 +54,16 @@ public class SortingTester
         double currentTime = System.currentTimeMillis();
         switch (q){
             case 1:
-                System.out.println(Arrays.toString(QuadSort.bubbleSort(arr)));
+                System.out.println(sorted(QuadSort.bubbleSort(arr)));
                 break;
             case 2:
-                System.out.println(Arrays.toString(QuadSort.selectionSort(arr)));
+                System.out.println(sorted(QuadSort.selectionSort(arr)));
                 break;
             case 3:
-                System.out.println(Arrays.toString(QuadSort.insertionSort(arr)));
+                System.out.println(sorted(QuadSort.insertionSort(arr)));
                 break;
             case 4:
-                System.out.println(Arrays.toString(QuadSort.mergeSort(arr)));
+                System.out.println(sorted(QuadSort.mergeSort(arr)));
                 break;
 
         }

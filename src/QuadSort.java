@@ -43,7 +43,28 @@ public class QuadSort{
         return arr;
     }
 
-    public static int[] mergeSort(int[] arr){
+    public static int[] mergeSort(int[] arr, int left, int right){
+        if(left == right){
+            return arr;
+        }
+        if (left < right){
+            int mid = (left + right) / 2;
+            mergeSort(arr, left, mid);
+            mergeSort(arr, mid + 1, right);
+
+            int size1 = mid - left + 1;
+            int size2 = right - mid;
+
+            int[] arrL = new int[size1];
+            int[] arrR = new int[size2];
+
+            for (int i = 0; i < size1; i++){
+                arrL[i] = arr[left + i];
+            }
+            for (int j = 0; j < size2; j++){
+                arrR[j] = arr[mid + 1 + j]
+            }
+        }
         return arr;
     }
 }
