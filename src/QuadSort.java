@@ -42,29 +42,63 @@ public class QuadSort{
 
         return arr;
     }
+    public static int[] mergeSort(int[] arr, int left, int right) {
+        if (left < right) {
 
-    public static int[] mergeSort(int[] arr, int left, int right){
-        if(left == right){
-            return arr;
-        }
-        if (left < right){
             int mid = (left + right) / 2;
+
+            // Sort first and second halves
             mergeSort(arr, left, mid);
             mergeSort(arr, mid + 1, right);
-
-            int size1 = mid - left + 1;
-            int size2 = right - mid;
-
-            int[] arrL = new int[size1];
-            int[] arrR = new int[size2];
-
-            for (int i = 0; i < size1; i++){
-                arrL[i] = arr[left + i];
-            }
-            for (int j = 0; j < size2; j++){
-                arrR[j] = arr[mid + 1 + j]
-            }
+            // Merge the sorted halves
+            merge(arr, left, mid, right);
         }
         return arr;
     }
-}
+    public static void merge(int[] arr, int left, int mid, int right)
+    {
+
+        int size1 = mid - left + 1;
+        int size2 = right - mid;
+
+        int[] arrL= new int[size1];
+        int[] arrR = new int[size2];
+
+        for (int i = 0; i < size1; i++){
+            arrL[i] = arr[left + i];
+        }
+
+        for (int j = 0; j < size2; ++j)
+            arrR[j] = arr[mid + 1 + j];
+
+        // Merge the temp arrays
+        // Initial indexes of first and second subarrays
+        int i = 0, j = 0;
+
+        int k = left;
+        while (i < size1 && j < size2) {
+            if (arrL[i] <= arrR[j]) {
+                arr[k] = arrL[i];
+                i++;
+            }
+            else {
+                arr[k] = arrR[j];
+                j++;
+            }
+            k++;
+        }
+
+        while (i < size1) {
+            arr[k] = arrL[i];
+            i++;
+            k++;
+        }
+
+        while (j < size2) {
+            arr[k] = arrR[j];
+            j++;
+            k++;
+        }
+    }
+    }
+
