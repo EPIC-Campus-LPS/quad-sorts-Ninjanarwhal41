@@ -9,12 +9,13 @@ public class SortingTester
         int[] arr3 = randomArray(10000);
         int[] arr4 = randomArray(100000);
         int[] arr5 = randomArray(1000000);
+        int[] arr6 = randomArray(10000000);
+        int[] arr7 = randomArray(100000000);
 
-        getTime(1, arr);
-
+        getTime(2, arr5);
     }
     public static boolean sorted(int[] arr){
-        for (int i = 0; i < arr.length -1; i++){
+        for (int i = 0; i < arr.length-1; i++){
             if (arr[i] > arr[i+1]){
                 return false;
             }
